@@ -106,16 +106,16 @@ determinant (int f[20][20], int x)
 float
 cramer_rule (int t[20][20], int q[20][20])
 {
-  int i, l, o;
+  int i, tempi, tempj;
   int j;
   int a,b=d; 
   float  values;
   int temp[20][20];
   for (j = 1; j <= m; j++)
     {
-      for (l = 1; l <= m; l++)
+      for (tempi = 1; tempi <= m; tempi++)
 	{
-	  for (o = 1; o <= m; o++)
+	  for (tempj = 1; tempj <= m; tempj++)
 	    {
 	      temp[l][o] = t[l][o];
 	    }
