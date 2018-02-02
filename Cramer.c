@@ -64,6 +64,12 @@ int
 determinant (int A[20][20], int order)
 {
   int sign, c[20], minorA[20][20], j, row, col, s;
+  if (order == 1)    
+  {      
+   det = A[1][1];                           //If order is 1, Determinant is 0     
+   return (det);    
+  }
+	else
   if (order == 2)
     {
       det = 0;			                        //If order is 1, Determinant is 0
