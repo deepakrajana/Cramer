@@ -1,9 +1,10 @@
 #include<stdio.h>
 #include<conio.h>
 #include<math.h>
-int a[20][20], b[20][20], order, det = 0;
-int determinant (int A[20][20], int order);
-float cramer_rule (int t[20][20], int q[20][20]);
+float a[20][20], b[20][20], det = 0; 
+int order;
+float determinant (float A[20][20], int order);
+float cramer_rule (float t[20][20], float q[20][20]);
 int
 main ()
 {
@@ -16,7 +17,7 @@ main ()
       for (j = 1; j <= order; j++)
 	{
 	  printf ("a[%d][%d] = ", i, j);
-	  scanf ("%d", &a[i][j]);
+	  scanf ("%f", &a[i][j]);
 	}
     }
   printf ("\n\n---------- Matrix A is --------------\n");
@@ -25,7 +26,7 @@ main ()
       printf ("\n");
       for (j = 1; j <= order; j++)
 	{
-	  printf ("\t%d \t", a[i][j]);	//Printing A array
+	  printf ("\t%0.2f \t", a[i][j]);	//Printing A array
 	}
     }
   printf ("\nEnter the elements of matrix\n");
@@ -34,7 +35,7 @@ main ()
       for (j = 1; j <= 1; j++)
 	{
 	  printf ("b[%d][%d] = ", i, j);
-	  scanf ("%d", &b[i][j]);
+	  scanf ("%f", &b[i][j]);
 	}
     }
   printf ("\n\n---------- Matrix B is --------------\n");
@@ -43,11 +44,11 @@ main ()
       printf ("\n");
       for (j = 1; j <= 1; j++)
 	{
-	  printf ("\t%d \t", b[i][j]);	//Printing B array
+	  printf ("\t%0.2f \t", b[i][j]);	//Printing B array
 	}
     }
   printf ("\n \n");
-  printf ("\n Determinant of Matrix A is %d .", determinant (a, order));
+  printf ("\n Determinant of Matrix A is %0.2f .", determinant (a, order));
   if (determinant (a, order) == 0)
     {
       printf ("\n As Determinant of Matrix A is 0, cannot proceed.");
@@ -60,14 +61,15 @@ main ()
   getch ();
 }
 
-int
-determinant (int A[20][20], int order)
+float
+determinant (float A[20][20], int order)
 {
-  int sign, c[20], minorA[20][20], j, row, col, s;
-  if (order == 1)    
-  {      
-   det = A[1][1];                           //If order is 1, Determinant is 0     
-   return (det);    
+  float sign, c[20], minorA[20][20];
+  int j, row, col, s;
+  if (order == 1)    
+  {      
+   det = A[1][1];                           //If order is 1, Determinant is 0     
+   return (det);    
   }
 	else
   if (order == 2)
@@ -110,12 +112,12 @@ determinant (int A[20][20], int order)
 }
 
 float
-cramer_rule (int t[20][20], int q[20][20])
+cramer_rule (float t[20][20], float q[20][20])
 {
   int i, j, tempi, tempj;
-  int eachDet, realDet = det;
+  float eachDet, realDet = det;
   float values;
-  int temp[20][20];
+  float temp[20][20];
   for (j = 1; j <= order; j++)
     {
       for (tempi = 1; tempi <= order; tempi++)
@@ -135,4 +137,3 @@ cramer_rule (int t[20][20], int q[20][20])
 
     }
 }
-
