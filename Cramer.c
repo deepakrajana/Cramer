@@ -9,7 +9,7 @@ int
 main ()
 {
   int i, j;
-  printf ("\n\nEnter order of matrix : ");
+  printf ("\n\nEnter order of matrix A : ");
   scanf ("%d", &order);
   printf ("\nEnter the elements of matrix\n");
   for (i = 1; i <= order; i++)
